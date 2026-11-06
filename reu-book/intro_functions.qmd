@@ -1,0 +1,14 @@
+---
+title: Functionality with functions
+---
+
+# What is a function? {.unnumbered}
+
+## Base R and some built in functions {.unnumbered}
+
+## Calling for help {.unnumbered}
+
+
+## Obtaining functions from packages {.unnumbered}
+
+
