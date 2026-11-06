@@ -1,0 +1,118 @@
+---
+title: Types of objects 
+---
+
+# Types of objects {.unnumbered}
+
+## Numbers, characters, complex, oh my. {.unnumbered}
+
+### Types of data {.unnumbered}
+
+In R, there are five types of data we may enctouner. Of these five, we commonly encounter two to three, depedning on what you are doing. These include: **numeric, character, logical, integer, and complex.**
+
+#### Numeric {.unnumbered}
+Numeric is for, you guessed it, numbers. Within a data frame, numeric sometimes express as "double". 
+
+```{r}
+# create a variable that is numeric  
+x <- 10
+```
+```{r}
+#| echo: false
+#| output: true
+class(x)
+```
+
+
+::: {.callout-note}
+In these code examples, the object type will print below the code. I have set it to do so using some hidden code. This will be consistent for the examples that follow below. 
+:::
+
+
+#### Character {.unnumbered}
+
+If I wrap a number, word, or string of words with quotations, they are considered a character-type variable. When creating a character, you can use "quotation marks" or 'apostrophes'. 
+```{r}
+#| error: true
+# create characters using three examples 
+x <- "character"
+y <- '10'
+z <- "all one object"
+```
+
+```{r}
+#| echo: false
+#| output: true
+class(x)
+class(y)
+class(z)
+```
+
+::: {.callout-caution}
+
+
+If you attempt to combine a quotation mark with an apostrophe, your code will break. See the example below. 
+
+:::
+
+```{r}
+#| error: true
+
+broken_name <- "x'
+
+```
+
+#### Logical {.unnumbered}
+
+Logical operators comprise out TRUE and FALSE statements. 
+
+
+::: {.callout-important}
+
+**What happens when you do not use full caps for either true or false?** Copy and paste the commented code into a script and see. 
+
+:::
+
+
+```{r}
+# assign logical values 
+x <- TRUE 
+y <- FALSE 
+#x <- true
+#class(true)
+```
+
+```{r}
+#| echo: false
+class(x)
+class(y)
+```
+
+
+#### Integer {.unnumbered}
+
+Integers are whole numbers without any fraction or decimal part. There are denoted in R by following a number with the uppercase letter "L".
+
+```{r}
+# assign an integer
+x <- 10L
+```
+
+```{r}
+#| echo: false
+class(x)
+```
+
+#### Complex numbers {.unnumbered}
+
+Last, but not least, is the complex number. In our day-to-day wrangling and visualization, we seldom encounter this. However, it is important to know that complex numbers exist in R. 
+
+```{r}
+# i for imaginary 
+x <- 10i
+```
+```{r}
+#| echo: false
+class(x)
+```
+

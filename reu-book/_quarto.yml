@@ -10,8 +10,8 @@ book:
   - part: "Section 1: Introduction"
     chapters:
       - intro_start.qmd
-      - intro_easy-code.qmd
-      - recap.qmd
+      - intro_easy.qmd
+      - intro_create.qmd
   
 
 format:

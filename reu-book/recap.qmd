@@ -1,7 +1,0 @@
-# What can R do? {.unnumbered}
- 
- First and foremost, R can act as calculator:
-
-```{r}
-2+2
-```

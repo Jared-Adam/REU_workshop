@@ -1,0 +1,113 @@
+---
+title: What can R do?
+---
+
+# Water we going to do with this blank script? {.unnumbered}
+ 
+
+## R as a calculator {.unnumbered}
+
+ First and foremost, R can act as calculator. This can be done in either the script or the console. *Note* that when you do any programming within the console, it does not automatically save as it does in the script. 
+
+```{r}
+2+2
+2-2
+(2+2)*2
+(2+2)*2*2
+(2+2)*(2*2)
+```
+
+## How to annotate text {.unnumbered}
+
+When wiritng code, it can be very helpful to leave yourself notes as to what you are doing, thinking, or to communicate with others who may encounter the same script. To accomplish this, we use the # [pound sign]. When you want comment something out, # must preceed the code. You can also annotate at the end of a line by following code with #. 
+
+```{r}
+#2+2
+2+2 # this adds
+```
+
+:::{.callout-note}
+The annotation that follows the *2+2* code is not reported in the output becuase R is ignoring it. 
+:::
+
+
+## Creating objects {.unnumbered}
+
+### How? {.unnumbered}
+
+The first, and potentially most important, step with naming is which operator(s) to use when assigning names. There are two choices: = [equal sign] or <- [less than with dash]. Generally, of these will yield the same result for naming variables. 
+
+```{r}
+x = 1
+y <- 2
+```
+
+:::{.callout-note}
+There are some operations that do not follow this rule. We will cover this more in the future as to when we can, and cannot, use either name-assigning operator. 
+:::
+
+
+
+## What can I use as a name? {.unnumbered} 
+
+### Numbers {.unnumbered} 
+
+Number values, such as a year, **cannot** preceed a name. R will ackowledge this as code and it will report an error. 
+```{r}
+#| error: true
+2026_name <- x
+```
+
+However, numbers can follow text. 
+```{r}
+name_2026 <- x
+```
+
+### Naming philosophy {.unnumbered}
+
+As with anything, there are guidelines (which can be ignored) that encourage imformative naming. This will become especially important the further you get into data wrangling and data frame manipulation. 
+
+#### CamelCase {.unnumbered}
+
+CamelCase, as you can see, follows the concept of combining upper- and lowercase letters to distinguish a name. For example, **NewDataFrame** is easier to read than **newdataframe**. 
+
+
+```{r}
+#| echo: false
+thisnameisnotnice <- 1
+```
+
+```{r}
+ThisNameIsNice <- thisnameisnotnice 
+```
+
+#### under_score {.unnumbered}
+
+Another popular naming philosophy is the underscore. Rather than changing the case, you separate_words_with_an_underscore. Again, it goes without saying **that this_is_easier_to_read** than **thisiseasiertoread**. 
+
+```{r}
+#| echo: false
+letsnotmakeitharderthanithastobe <- x
+```
+
+```{r}
+coding_is_hard_enough <- letsnotmakeitharderthanithastobe
+```
+
+### How informative should a name be? {.unnumbered}
+
+When it comes down to it, that is up to the author. R studio (and most IDEs) do an excellent job auto-filling object names. There is something to be said about script cleanliness, but again, this is at the authors discretion. *Persaonlly*, I aire on the side of short, but imformative names. 
+
+For example:
+
+- new_data_2026 > new_data_frame_with_raw_data_2026
+
+- loc_x_subset.1 > subset_by_location_x_round_1
+
+
+::: {.callout-note}
+
+As long as you do not start your object name with a number, naming comes at the discretion of the author. However, it is important to consider future use (by you and others). 
+
+:::
+}
