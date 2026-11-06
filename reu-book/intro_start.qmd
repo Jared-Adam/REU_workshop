@@ -1,0 +1,58 @@
+---
+title: "What is code?"
+---
+# Start from the beginning {.unnumbered}
+
+### What is programming? {.unnumbered}
+
+Computer programming is the process of **writing code** to facilitate actions in a computer, application, or software program, and instructs them on how to perform. 
+
+Each 'type' of programming comes with it's own language. 
+A **programming language** is a vocabulary and set of grammatical rules for instructing a computer or computing device to perform specific tasks. 
+Examples of programming languages include, but are not limited to , C, C++, Java, Python, and of course, **R**. 
+
+The **purpose** of programming is to find a sequence of instructions that will automate the performance of a task on a computer. 
+    
+
+### How to run code {.unnumbered}
+
+|    **Task**    | **Windows & Linux** |     **Mac**    |
+|----------------|---------------------|----------------|
+|     Run        | `Ctrl + Enter`      |      `Cmd + Return`          |
+
+
+### Basic operators you will use/ encounter {.unnumbered}
+
+| **Task**             | **Windows & Linux** | **Mac**           |
+|----------------------|---------------------|-------------------|
+| Copy                 | `Ctrl + C`          | `Cmd + C`         |
+| Paste                | `Ctrl + V`          | ` Cmd + V`        |
+| Undo                 | `Ctrl + Z`          | `Cmd + Z`         |
+| Redo                 | `Ctrl + Shift + Z`  | `Cmd + Shift + Z` |
+| Select All           | `Ctrl + A`          | `Cmd + A`         |
+| Indent               | `Tab`               | `Tab`             |
+| Outdent              | `Shift + Tab`       | `Shift + Tab`     |
+| Insert pipe operator | `Cmd + Shift + M`   | `Cmd + Shift + M` |
+
+### Arithmetic operators {.unnumbered}
+
+| **Task**       | **Operator** | **Example** |
+|----------------|--------------|-------------|
+| Addition       | `+`          | `x + y`     |
+| Substraction   | `-`          | `x - y`     |
+| Multiplication | `*`          | `x * y`     |
+| Division       | `/`          | `x / y`     |
+| Exponent       | `^`          | `x ^ y`     |
+
+### Logic commands {.unnumbered} 
+
+| **Task**                  | **Operator** | **Example** |
+|---------------------------|--------------|-------------|
+| Equal                     | `==`         | `x == y`    |
+| Not equal                 | `!=`         | `x != y`    |
+| Greater than              | `>`          | `x > y`     |
+| Less than                 | `<`          | `x < y`     |
+| Greater than or equal to  | `>=`         | `x >= y`    |
+| Less than or equal to     | `<=`         | `x <= y`    |
+
+

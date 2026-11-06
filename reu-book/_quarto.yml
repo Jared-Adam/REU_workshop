@@ -1,21 +1,35 @@
 project:
-  type: website
+  type: book
 
-website:
-  title: "reu-book"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+book:
+  title: "REU Workshop"
+  author: "Jared Adam"
+  date: "2026/11/6"
+  chapters: 
+  - index.qmd
+  - part: "Section 1: Introduction"
+    chapters:
+      - intro_start.qmd
+      - intro_easy-code.qmd
+      - recap.qmd
+  
 
 format:
-  html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
+ html:
+    theme: cosmo
+    title-block-banner: "#9e74f1"
     toc: true
+    code-block-bg: true
+    code-block-border-left: "#1abcd9"
+    highlight-style: atom-one
+    code-copy: true
+    code-fold: false
+    code-overflow: wrap
+    code-tools: true
+    code-link: true
+
+execute: 
+  freeze: auto
 
 
 

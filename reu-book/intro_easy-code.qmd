@@ -1,0 +1,15 @@
+---
+title: "Start with the basics"
+format: html
+engine: knitr
+---
+# What can R do? {.unnumbered}
+ 
+ First and foremost, R can act as calculator:
+ ```{r} 
+2+2
+ ```
+ ```{r}
+ penguins
+ 
+ ```
