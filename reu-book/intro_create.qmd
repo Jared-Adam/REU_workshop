@@ -8,10 +8,10 @@ title: Types of objects
 
 ### Types of data {.unnumbered}
 
-In R, there are five types of data we may enctouner. Of these five, we commonly encounter two to three, depedning on what you are doing. These include: **numeric, character, logical, integer, and complex.**
+In R, there are five types of data we may enctouner. Of these five, we commonly encounter two to three, depending on what you are doing. These include: **numeric, character, logical, integer, and complex.**
 
 #### Numeric {.unnumbered}
-Numeric is for, you guessed it, numbers. Within a data frame, numeric sometimes express as "double". 
+Numeric is for, you guessed it, numbers. Within a data frame, numeric sometimes express as "double", but are treated the same operationally. 
 
 ```{r}
 # create a variable that is numeric  
@@ -26,6 +26,8 @@ class(x)
 
 ::: {.callout-note}
 In these code examples, the object type will print below the code. I have set it to do so using some hidden code. This will be consistent for the examples that follow below. 
+
+If you want to see that code, scroll to the title banner and select the **</> Code** link on the right side. 
 :::
 
 
@@ -64,7 +66,7 @@ broken_name <- "x'
 
 #### Logical {.unnumbered}
 
-Logical operators comprise out TRUE and FALSE statements. 
+Logical operators comprise TRUE and FALSE statements. 
 
 
 ::: {.callout-important}
@@ -91,7 +93,7 @@ class(y)
 
 #### Integer {.unnumbered}
 
-Integers are whole numbers without any fraction or decimal part. There are denoted in R by following a number with the uppercase letter "L".
+Integers are whole numbers without any fraction or decimal part. They are denoted in R by following a number with the uppercase letter "L".
 
 ```{r}
 # assign an integer

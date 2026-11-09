@@ -113,8 +113,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>
 
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: #D4D4D4;
+      }
+
       .quarto-title-block .quarto-title-banner {
-        background: #9e74f1;
+        color: #D4D4D4;
+background: #FF527A;
       }
 </style>
 
@@ -198,7 +209,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_create.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">intro_create.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Types of objects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functionality with functions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Section 2: Cleaning</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clean_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clean data with dplyr</span></span></a>
   </div>
 </li>
       </ul>
@@ -294,7 +325,7 @@ Note
 <h2 class="unnumbered anchored" data-anchor-id="creating-objects">Creating objects</h2>
 <section id="how" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="how">How?</h3>
-<p>The first, and potentially most important, step with naming is which operator(s) to use when assigning names. There are two choices: = [equal sign] or &lt;- [less than with dash]. Generally, of these will yield the same result for naming variables.</p>
+<p>The first, and potentially most important, step with naming is which operator(s) to use when assigning names. There are two choices: <strong>= [equal sign]</strong> or <strong>&lt;- [less than dash]</strong>. Generally, either of these will yield the same result for naming variables.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -355,8 +386,8 @@ Note
 <p>When it comes down to it, that is up to the author. R studio (and most IDEs) do an excellent job auto-filling object names. There is something to be said about script cleanliness, but again, this is at the authors discretion. <em>Persaonlly</em>, I aire on the side of short, but imformative names.</p>
 <p>For example:</p>
 <ul>
-<li><p>new_data_2026 &gt; new_data_frame_with_raw_data_2026</p></li>
-<li><p>loc_x_subset.1 &gt; subset_by_location_x_round_1</p></li>
+<li><p>new_data_2026 <strong>&gt;</strong> new_data_frame_with_raw_data_2026</p></li>
+<li><p>loc_x_subset.1 <strong>&gt;</strong> subset_by_location_x_round_1</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -371,7 +402,6 @@ Note
 <p>As long as you do not start your object name with a number, naming comes at the discretion of the author. However, it is important to consider future use (by you and others).</p>
 </div>
 </div>
-<p>}</p>
 
 
 <!-- -->
@@ -915,8 +945,8 @@ Note
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro_create.html" class="pagination-link" aria-label="intro_create.html">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">intro_create.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./intro_create.html" class="pagination-link" aria-label="Types of objects">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Types of objects</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -957,7 +987,7 @@ Note
 <span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### How? {.unnumbered}</span></span>
 <span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>The first, and potentially most important, step with naming is which operator(s) to use when assigning names. There are two choices: = <span class="co">[</span><span class="ot">equal sign</span><span class="co">]</span> or &lt;- <span class="co">[</span><span class="ot">less than with dash</span><span class="co">]</span>. Generally, of these will yield the same result for naming variables. </span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>The first, and potentially most important, step with naming is which operator(s) to use when assigning names. There are two choices: **= [equal sign]** or **&lt;- [less than dash]**. Generally, either of these will yield the same result for naming variables. </span>
 <span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span></span>
@@ -1022,9 +1052,9 @@ Note
 <span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a>For example:</span>
 <span id="cb19-120"><a href="#cb19-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-121"><a href="#cb19-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>new_data_2026 &gt; new_data_frame_with_raw_data_2026</span>
+<span id="cb19-121"><a href="#cb19-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>new_data_2026 **&gt;** new_data_frame_with_raw_data_2026</span>
 <span id="cb19-122"><a href="#cb19-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>loc_x_subset.1 &gt; subset_by_location_x_round_1</span>
+<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>loc_x_subset.1 **&gt;** subset_by_location_x_round_1</span>
 <span id="cb19-124"><a href="#cb19-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-125"><a href="#cb19-125" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
@@ -1032,7 +1062,6 @@ Note
 <span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a>As long as you do not start your object name with a number, naming comes at the discretion of the author. However, it is important to consider future use (by you and others). </span>
 <span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-130"><a href="#cb19-130" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a>}</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

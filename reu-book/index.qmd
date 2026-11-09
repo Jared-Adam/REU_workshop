@@ -4,8 +4,8 @@
 
 This workshop is designed to serve as an introduction to R, data wrangling, and data visulatization. Since we only meet on a biweekly basis, it is adivsed that you continue to work on the skills on your own time. 
 
-In this document, I will share all of things we have dicussed and start to share new things. I will update this document every week with a *recap* section. While the code in this document is not interactive, you can copy and paste it into your own script. In addition to this document, I will provide raw data scripts with minimal annotations, since the code will match what is shared here. 
+In this document, I will share all of things we have dicussed and start to share new things. While the code in this document is not interactive, you can copy and paste it into your own script. In addition to this document, I will provide raw data scripts with minimal annotations, since the code will match what is shared here. 
 
-This course will be entirely focussed on **R**. While there no required IDE, I encourage you to start with R studio. Links to R and R Studio downloads ar here: 
+This course will be entirely focussed on **R**. While there is no required IDE, I encourage you to start with R studio. 
 
 Additionally, while **Github** fluency is not required, I will be sharing scripts and data via Github, so please create a username and send it to me via slack. 

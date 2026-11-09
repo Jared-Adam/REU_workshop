@@ -13,6 +13,12 @@ x <- c(1,2,3,4,5,6)
 mean(x)
 ```
 
+For arithmetic functions, we can also add raw values. 
+
+```{r}
+mean(c(1,2,3,4,5,6))
+```
+
 
 ## Calling for help {.unnumbered}
 Now, let's say we would like to work with a function and do not know what it does or if it is the right choice for the task at hand. In R-studio, we can ask for help! If you preceed a function with a quesiton mark [?], a help sheet with code examples will be provided. Run the code below in your session and take a look!

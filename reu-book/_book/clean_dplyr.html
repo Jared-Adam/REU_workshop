@@ -273,7 +273,7 @@ background: #FF527A;
 <p>In this section, we will go over some important packages and key functions that will aid in R-based data wrangling. SO, without further ado, lettuce begin.</p>
 <section id="what-we-use-to-wrangle" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="what-we-use-to-wrangle">What we use to wrangle</h3>
-<p>When we wrangle our data sets, there is one ‘umbrella’ package I find to be the most versatile. This is <strong>tidyverse</strong>. <strong>Tidyverse</strong> houses many useful packages for data manipulation, but in this section I will only be referring to one. This package is <strong>dplyr</strong>. While I rely on this package a lot, I also use functions pre-installed in Base R while wrangling.</p>
+<p>When we wrangle our data sets, there is one ‘umbrella’ package that is the most versatile. This is <strong>tidyverse</strong>. <strong>Tidyverse</strong> houses many useful packages for data manipulation, but in this section I will only be referring to one. This package is <strong>dplyr</strong>. While I rely on this package a lot, I also use functions pre-installed in base R while wrangling.</p>
 <p>Please see the wrangling cheat sheets <a href="resources.qmd">here</a>.</p>
 <p>Additionally, R also has packages we can download that contain data sets for us to practice with. In the following examples, we will use the <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer Penguins</a> data sets authored by Allison Horst. Within this package, there are two data sets: clean and raw. We will use the clean data set!</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -316,10 +316,10 @@ Important
 </section>
 <section id="dplyr-examples" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="dplyr-examples">dplyr Examples</h2>
-<p>Let’s start by installing the needed packages. Remove the # symbol to install these packages.</p>
-<div class="cell" data-ouptput="false">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("palmerpenguins")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Let’s start by installing the needed packages.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -422,7 +422,7 @@ Note
 </section>
 <section id="rename" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="rename">rename()</h3>
-<p>Now that we have viewed and selected for different columns and such, we manipulate our data set. We will start by renaming some columns. Notice with rename, there are two methods you can use. One <em>without</em> quotation marks, and one <em>with.</em></p>
+<p>What if I have a typo in a column name or really do not like what a column is called? Fortunately, renaming columns is easy. Notice with rename, there are two methods you can use. One <em>without</em> quotation marks, and one <em>with.</em> Regardless of which you use, the new name will always come first, followed by the old name.</p>
 <p>In this example, using the <strong>rename</strong> function, I am changing ‘species’ to ‘Species and ’year’ to ‘Year’.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rename()</span></span>
@@ -525,8 +525,8 @@ Note
 </section>
 <section id="filter" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="filter">filter()</h3>
-<p>We also have the ability to subset out data sets and pull out rows with specific values. Let’s say I <em>only</em> want to look at data from <em>2007.</em> To accomplish this, we will use the <strong>filter</strong> function.</p>
-<p>In this example, we will be adding the <strong>filter</strong> function as well as recall our knowledge of <a href="d_functionality.qmd">operators</a> within R.</p>
+<p>We also have the ability to pull out rows with specific values. Let’s say I <em>only</em> want to look at data from <em>2007.</em> To accomplish this, we will use the <strong>filter</strong> function.</p>
+<p>In this example, we will be adding the <strong>filter</strong> function as well as recall our knowledge of <a href="./intro_start.html">operators</a> within R.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select() and filter()</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
@@ -574,7 +574,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>WAIT! This output is telling me that there are no instances of a bill length that is greater than the avarage from 2007… That seems impossible, no? So, what is the issue?</p>
+<p>WAIT! This output is telling me that there are no instances of a bill length that are greater than the avarage from 2007… That seems impossible, no? So, what is the issue?</p>
 <p>ALSO! There is no error message here. It is important to investigate the outputs we obtain because the code may run, but not be accomplishing what we think it is.</p>
 </div>
 </div>
@@ -631,7 +631,7 @@ Warning
 # ℹ 324 more rows</code></pre>
 </div>
 </div>
-<p>Ok great, what if my data set is too big to scroll through an find an NA value? An easy solution to do a quick subset of the NA values to determine if there are any present.</p>
+<p>Ok great, what if my data set is too big to scroll through an find an NA value? An easy solution to do a quick filter of the NA values to determine if there are any present.</p>
 <p>Using filter again, I will nest the <strong>is.na</strong> function with the variable I am interested in. If there is an NA in this column, R will print those values.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
@@ -776,7 +776,7 @@ I want to know how many species I have to further filter this set. To accomplish
 <section id="mutate" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="mutate">mutate()</h3>
 <p>Now, let’s create some new columns and row values. With <strong>mutate</strong> I can add a new column with any information I would like.</p>
-<p>Let’s start with a simple example of adding “new_column” with only the letter “x” in each row.</p>
+<p>Let’s start with a simple example of adding “new_column” with only the letter “x” in each row. <em>Notice</em> with these new columns, the first step is to name the new column and then command R what to put in.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
@@ -832,7 +832,7 @@ I want to know how many species I have to further filter this set. To accomplish
 </div>
 </div>
 <p>Let’s say we want to add a new column combining <em>species and year</em> and a new column with the <em>rounded values of bill length</em>. We will be using the <strong>mutate</strong> function here. Along with this, we then want to <em>rearrange</em> our data set for viewing purposes of our new variables. This will be done with the <strong>select</strong> function.</p>
-<p>In this example, I have created the column ‘sp_year’ which will contain both species and year, but keep their respective values separated by a dash. I then created a new column of the rounded bill length values using the <strong>round</strong> function. <em>Notice</em> with these new columns, the first step is to name the new column and then command R what to put in. Lastly, using the <strong>select</strong> function, I command R to order this data set as follows.</p>
+<p>In this example, I have created the column ‘sp_year’ which will contain both species and year, but keep their respective values separated by a dash. I then create a new column of the rounded bill length values using the <strong>round</strong> function. Lastly, using the <strong>select</strong> function, I command R to order this data set as follows.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select(), mutate(), select()</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
@@ -882,7 +882,7 @@ I want to know how many species I have to further filter this set. To accomplish
 1             44.0           5.47            17.2          1.97</code></pre>
 </div>
 </div>
-<p>The last output was informative, but lets look a little deeper. I now want to group these new values by species. Using the <strong>group_by</strong> function, we can tell R to group our data set by one, or more variables.</p>
+<p>The last output was informative, but lets look a little deeper. I now want to group these new values by species.</p>
 <p>In this example, I am telling R to <strong>group_by</strong> species, and then provide me with the means and standard deviations of bill length and depth.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by() and summarize()</span></span>
@@ -905,7 +905,7 @@ I want to know how many species I have to further filter this set. To accomplish
 </div>
 </div>
 <p>Following the trend of the last example, let’s further group our data set. I want to now see these same values but by species AND year. Using the <strong>group_by</strong> function again, we can accomplish this.</p>
-<p>In this example, the only change is I added ‘, year’ into my <strong>group_by</strong> function.</p>
+<p>In this example, the only change is I added ‘year’ into my <strong>group_by</strong> function.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by() and summarize()</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
@@ -1500,11 +1500,11 @@ I want to know how many species I have to further filter this set. To accomplish
 <span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### What we use to wrangle {.unnumbered}</span></span>
 <span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>When we wrangle our data sets, there is one 'umbrella' package I find to be the most versatile. </span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>When we wrangle our data sets, there is one 'umbrella' package that is the most versatile. </span>
 <span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>This is **tidyverse**.</span>
 <span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>**Tidyverse** houses many useful packages for data manipulation, but in this section I will only be referring to one. </span>
 <span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>This package is **dplyr**. </span>
-<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>While I rely on this package a lot, I also use functions pre-installed in Base R while wrangling. </span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>While I rely on this package a lot, I also use functions pre-installed in base R while wrangling. </span>
 <span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a>Please see the wrangling cheat sheets <span class="co">[</span><span class="ot">here</span><span class="co">](resources.qmd)</span>.</span>
 <span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a></span>
@@ -1528,12 +1528,12 @@ I want to know how many species I have to further filter this set. To accomplish
 <span id="cb53-36"><a href="#cb53-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-37"><a href="#cb53-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## dplyr Examples {.unnumbered}</span></span>
 <span id="cb53-38"><a href="#cb53-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-39"><a href="#cb53-39" aria-hidden="true" tabindex="-1"></a>Let's start by installing the needed packages. Remove the # symbol to install these packages. </span>
+<span id="cb53-39"><a href="#cb53-39" aria-hidden="true" tabindex="-1"></a>Let's start by installing the needed packages. </span>
 <span id="cb53-40"><a href="#cb53-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-43"><a href="#cb53-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb53-44"><a href="#cb53-44" aria-hidden="true" tabindex="-1"></a><span class="co">#| ouptput: false</span></span>
-<span id="cb53-45"><a href="#cb53-45" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("palmerpenguins")</span></span>
-<span id="cb53-46"><a href="#cb53-46" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse")</span></span>
+<span id="cb53-44"><a href="#cb53-44" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb53-45"><a href="#cb53-45" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span>
+<span id="cb53-46"><a href="#cb53-46" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
 <span id="cb53-47"><a href="#cb53-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb53-48"><a href="#cb53-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-51"><a href="#cb53-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -1596,10 +1596,10 @@ I want to know how many species I have to further filter this set. To accomplish
 <span id="cb53-116"><a href="#cb53-116" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-117"><a href="#cb53-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### rename() {.unnumbered}</span></span>
 <span id="cb53-118"><a href="#cb53-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-119"><a href="#cb53-119" aria-hidden="true" tabindex="-1"></a>Now that we have viewed and selected for different columns and such, we manipulate our data set.</span>
-<span id="cb53-120"><a href="#cb53-120" aria-hidden="true" tabindex="-1"></a>We will start by renaming some columns. </span>
-<span id="cb53-121"><a href="#cb53-121" aria-hidden="true" tabindex="-1"></a>Notice with rename, there are two methods you can use. </span>
-<span id="cb53-122"><a href="#cb53-122" aria-hidden="true" tabindex="-1"></a>One *without* quotation marks, and one *with.*</span>
+<span id="cb53-119"><a href="#cb53-119" aria-hidden="true" tabindex="-1"></a>What if I have a typo in a column name or really do not like what a column is called? Fortunately, renaming columns is easy. </span>
+<span id="cb53-120"><a href="#cb53-120" aria-hidden="true" tabindex="-1"></a>Notice with rename, there are two methods you can use. </span>
+<span id="cb53-121"><a href="#cb53-121" aria-hidden="true" tabindex="-1"></a>One *without* quotation marks, and one *with.*</span>
+<span id="cb53-122"><a href="#cb53-122" aria-hidden="true" tabindex="-1"></a>Regardless of which you use, the new name will always come first, followed by the old name. </span>
 <span id="cb53-123"><a href="#cb53-123" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-124"><a href="#cb53-124" aria-hidden="true" tabindex="-1"></a>In this example, using the **rename** function, I am changing 'species' to 'Species and 'year' to 'Year'.</span>
 <span id="cb53-125"><a href="#cb53-125" aria-hidden="true" tabindex="-1"></a></span>
@@ -1652,11 +1652,11 @@ I want to know how many species I have to further filter this set. To accomplish
 <span id="cb53-180"><a href="#cb53-180" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-181"><a href="#cb53-181" aria-hidden="true" tabindex="-1"></a><span class="fu">### filter() {.unnumbered}</span></span>
 <span id="cb53-182"><a href="#cb53-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-183"><a href="#cb53-183" aria-hidden="true" tabindex="-1"></a>We also have the ability to subset out data sets and pull out rows with specific values. </span>
+<span id="cb53-183"><a href="#cb53-183" aria-hidden="true" tabindex="-1"></a>We also have the ability to pull out rows with specific values. </span>
 <span id="cb53-184"><a href="#cb53-184" aria-hidden="true" tabindex="-1"></a>Let's say I *only* want to look at data from *2007.* </span>
 <span id="cb53-185"><a href="#cb53-185" aria-hidden="true" tabindex="-1"></a>To accomplish this, we will use the **filter** function. </span>
 <span id="cb53-186"><a href="#cb53-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-187"><a href="#cb53-187" aria-hidden="true" tabindex="-1"></a>In this example, we will be adding the **filter** function as well as recall our knowledge of <span class="co">[</span><span class="ot">operators</span><span class="co">](d_functionality.qmd)</span> within R.</span>
+<span id="cb53-187"><a href="#cb53-187" aria-hidden="true" tabindex="-1"></a>In this example, we will be adding the **filter** function as well as recall our knowledge of <span class="co">[</span><span class="ot">operators</span><span class="co">](intro_start.qmd)</span> within R.</span>
 <span id="cb53-188"><a href="#cb53-188" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-191"><a href="#cb53-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb53-192"><a href="#cb53-192" aria-hidden="true" tabindex="-1"></a><span class="co"># select() and filter()</span></span>
@@ -1685,7 +1685,7 @@ I want to know how many species I have to further filter this set. To accomplish
 <span id="cb53-217"><a href="#cb53-217" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-218"><a href="#cb53-218" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
 <span id="cb53-219"><a href="#cb53-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-220"><a href="#cb53-220" aria-hidden="true" tabindex="-1"></a>WAIT! This output is telling me that there are no instances of a bill length that is greater than the avarage from 2007... That seems impossible, no? So, what is the issue?</span>
+<span id="cb53-220"><a href="#cb53-220" aria-hidden="true" tabindex="-1"></a>WAIT! This output is telling me that there are no instances of a bill length that are greater than the avarage from 2007... That seems impossible, no? So, what is the issue?</span>
 <span id="cb53-221"><a href="#cb53-221" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-222"><a href="#cb53-222" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-223"><a href="#cb53-223" aria-hidden="true" tabindex="-1"></a>ALSO! There is no error message here. It is important to investigate the outputs we obtain because the code may run, but not be accomplishing what we think it is. </span>
@@ -1707,7 +1707,7 @@ I want to know how many species I have to further filter this set. To accomplish
 <span id="cb53-243"><a href="#cb53-243" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-244"><a href="#cb53-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb53-245"><a href="#cb53-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-246"><a href="#cb53-246" aria-hidden="true" tabindex="-1"></a>Ok great, what if my data set is too big to scroll through an find an NA value? An easy solution to do a quick subset of the NA values to determine if there are any present.</span>
+<span id="cb53-246"><a href="#cb53-246" aria-hidden="true" tabindex="-1"></a>Ok great, what if my data set is too big to scroll through an find an NA value? An easy solution to do a quick filter of the NA values to determine if there are any present.</span>
 <span id="cb53-247"><a href="#cb53-247" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-248"><a href="#cb53-248" aria-hidden="true" tabindex="-1"></a>Using filter again, I will nest the **is.na** function with the variable I am interested in. If there is an NA in this column, R will print those values. </span>
 <span id="cb53-249"><a href="#cb53-249" aria-hidden="true" tabindex="-1"></a></span>
@@ -1794,7 +1794,7 @@ I want to know how many species I have to further filter this set. To accomplish
 <span id="cb53-342"><a href="#cb53-342" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-343"><a href="#cb53-343" aria-hidden="true" tabindex="-1"></a>Now, let's create some new columns and row values. With **mutate** I can add a new column with any information I would like. </span>
 <span id="cb53-344"><a href="#cb53-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-345"><a href="#cb53-345" aria-hidden="true" tabindex="-1"></a>Let's start with a simple example of adding "new_column" with only the letter "x" in each row. </span>
+<span id="cb53-345"><a href="#cb53-345" aria-hidden="true" tabindex="-1"></a>Let's start with a simple example of adding "new_column" with only the letter "x" in each row. *Notice* with these new columns, the first step is to name the new column and then command R what to put in. </span>
 <span id="cb53-346"><a href="#cb53-346" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-349"><a href="#cb53-349" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb53-350"><a href="#cb53-350" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
@@ -1828,84 +1828,83 @@ I want to know how many species I have to further filter this set. To accomplish
 <span id="cb53-380"><a href="#cb53-380" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-381"><a href="#cb53-381" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-382"><a href="#cb53-382" aria-hidden="true" tabindex="-1"></a>In this example, I have created the column 'sp_year' which will contain both species and year, but keep their respective values separated by a dash. </span>
-<span id="cb53-383"><a href="#cb53-383" aria-hidden="true" tabindex="-1"></a>I then created a new column of the rounded bill length values using the **round** function. </span>
-<span id="cb53-384"><a href="#cb53-384" aria-hidden="true" tabindex="-1"></a>*Notice* with these new columns, the first step is to name the new column and then command R what to put in. </span>
-<span id="cb53-385"><a href="#cb53-385" aria-hidden="true" tabindex="-1"></a>Lastly, using the **select** function, I command R to order this data set as follows.</span>
-<span id="cb53-386"><a href="#cb53-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-389"><a href="#cb53-389" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb53-390"><a href="#cb53-390" aria-hidden="true" tabindex="-1"></a><span class="co"># select(), mutate(), select()</span></span>
-<span id="cb53-391"><a href="#cb53-391" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb53-392"><a href="#cb53-392" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb53-393"><a href="#cb53-393" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, bill_length_mm, year) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-394"><a href="#cb53-394" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb53-395"><a href="#cb53-395" aria-hidden="true" tabindex="-1"></a>    <span class="at">sp_year =</span> <span class="fu">paste</span>(species, <span class="st">"-"</span>, year), <span class="co">#adding a new column named 'sp_year' and pasting the species column and year column with a dash between them. </span></span>
-<span id="cb53-396"><a href="#cb53-396" aria-hidden="true" tabindex="-1"></a>    <span class="at">rn_bill_length_mm =</span> <span class="fu">round</span>(bill_length_mm) <span class="co">#creating a column of rounded bill lengths </span></span>
-<span id="cb53-397"><a href="#cb53-397" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-398"><a href="#cb53-398" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, year, sp_year, bill_length_mm, rn_bill_length_mm) <span class="co">#placing these new columns an order I would like </span></span>
-<span id="cb53-399"><a href="#cb53-399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb53-400"><a href="#cb53-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-401"><a href="#cb53-401" aria-hidden="true" tabindex="-1"></a><span class="fu">### summarize() {.unnumbered}</span></span>
-<span id="cb53-402"><a href="#cb53-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-403"><a href="#cb53-403" aria-hidden="true" tabindex="-1"></a>Now that we are confident in our wrangling, we can investigate some summary statistics. </span>
-<span id="cb53-404"><a href="#cb53-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-405"><a href="#cb53-405" aria-hidden="true" tabindex="-1"></a>First, let's look at the means and standard deviations of both bill length and depth.</span>
-<span id="cb53-406"><a href="#cb53-406" aria-hidden="true" tabindex="-1"></a>This will be done by name new columns and then using either the **mean** function or **sd** function to produce a desired output.</span>
-<span id="cb53-407"><a href="#cb53-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-410"><a href="#cb53-410" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb53-411"><a href="#cb53-411" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize ()</span></span>
-<span id="cb53-412"><a href="#cb53-412" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb53-413"><a href="#cb53-413" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb53-414"><a href="#cb53-414" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>( <span class="co">#summarize to run summary stats </span></span>
-<span id="cb53-415"><a href="#cb53-415" aria-hidden="true" tabindex="-1"></a>  <span class="at">bill_length_mean =</span> <span class="fu">mean</span>(bill_length_mm), <span class="co">#new column with mean value of bill length</span></span>
-<span id="cb53-416"><a href="#cb53-416" aria-hidden="true" tabindex="-1"></a>  <span class="at">bill_length_sd =</span> <span class="fu">sd</span>(bill_length_mm), <span class="co">#new column with standard deviation value of bill length</span></span>
-<span id="cb53-417"><a href="#cb53-417" aria-hidden="true" tabindex="-1"></a>  <span class="at">bill_depth_mean =</span> <span class="fu">mean</span>(bill_depth_mm), <span class="co">#new column with mean value of bill depth</span></span>
-<span id="cb53-418"><a href="#cb53-418" aria-hidden="true" tabindex="-1"></a>  <span class="at">bill_depth_sd =</span> <span class="fu">sd</span>(bill_depth_mm) <span class="co">#new column with standard deviation value of bill depth</span></span>
-<span id="cb53-419"><a href="#cb53-419" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb53-420"><a href="#cb53-420" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb53-383"><a href="#cb53-383" aria-hidden="true" tabindex="-1"></a>I then create a new column of the rounded bill length values using the **round** function. </span>
+<span id="cb53-384"><a href="#cb53-384" aria-hidden="true" tabindex="-1"></a>Lastly, using the **select** function, I command R to order this data set as follows.</span>
+<span id="cb53-385"><a href="#cb53-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-388"><a href="#cb53-388" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb53-389"><a href="#cb53-389" aria-hidden="true" tabindex="-1"></a><span class="co"># select(), mutate(), select()</span></span>
+<span id="cb53-390"><a href="#cb53-390" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb53-391"><a href="#cb53-391" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb53-392"><a href="#cb53-392" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, bill_length_mm, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb53-393"><a href="#cb53-393" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb53-394"><a href="#cb53-394" aria-hidden="true" tabindex="-1"></a>    <span class="at">sp_year =</span> <span class="fu">paste</span>(species, <span class="st">"-"</span>, year), <span class="co">#adding a new column named 'sp_year' and pasting the species column and year column with a dash between them. </span></span>
+<span id="cb53-395"><a href="#cb53-395" aria-hidden="true" tabindex="-1"></a>    <span class="at">rn_bill_length_mm =</span> <span class="fu">round</span>(bill_length_mm) <span class="co">#creating a column of rounded bill lengths </span></span>
+<span id="cb53-396"><a href="#cb53-396" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb53-397"><a href="#cb53-397" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, year, sp_year, bill_length_mm, rn_bill_length_mm) <span class="co">#placing these new columns an order I would like </span></span>
+<span id="cb53-398"><a href="#cb53-398" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb53-399"><a href="#cb53-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-400"><a href="#cb53-400" aria-hidden="true" tabindex="-1"></a><span class="fu">### summarize() {.unnumbered}</span></span>
+<span id="cb53-401"><a href="#cb53-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-402"><a href="#cb53-402" aria-hidden="true" tabindex="-1"></a>Now that we are confident in our wrangling, we can investigate some summary statistics. </span>
+<span id="cb53-403"><a href="#cb53-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-404"><a href="#cb53-404" aria-hidden="true" tabindex="-1"></a>First, let's look at the means and standard deviations of both bill length and depth.</span>
+<span id="cb53-405"><a href="#cb53-405" aria-hidden="true" tabindex="-1"></a>This will be done by name new columns and then using either the **mean** function or **sd** function to produce a desired output.</span>
+<span id="cb53-406"><a href="#cb53-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-409"><a href="#cb53-409" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb53-410"><a href="#cb53-410" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize ()</span></span>
+<span id="cb53-411"><a href="#cb53-411" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb53-412"><a href="#cb53-412" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb53-413"><a href="#cb53-413" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>( <span class="co">#summarize to run summary stats </span></span>
+<span id="cb53-414"><a href="#cb53-414" aria-hidden="true" tabindex="-1"></a>  <span class="at">bill_length_mean =</span> <span class="fu">mean</span>(bill_length_mm), <span class="co">#new column with mean value of bill length</span></span>
+<span id="cb53-415"><a href="#cb53-415" aria-hidden="true" tabindex="-1"></a>  <span class="at">bill_length_sd =</span> <span class="fu">sd</span>(bill_length_mm), <span class="co">#new column with standard deviation value of bill length</span></span>
+<span id="cb53-416"><a href="#cb53-416" aria-hidden="true" tabindex="-1"></a>  <span class="at">bill_depth_mean =</span> <span class="fu">mean</span>(bill_depth_mm), <span class="co">#new column with mean value of bill depth</span></span>
+<span id="cb53-417"><a href="#cb53-417" aria-hidden="true" tabindex="-1"></a>  <span class="at">bill_depth_sd =</span> <span class="fu">sd</span>(bill_depth_mm) <span class="co">#new column with standard deviation value of bill depth</span></span>
+<span id="cb53-418"><a href="#cb53-418" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb53-419"><a href="#cb53-419" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb53-420"><a href="#cb53-420" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-421"><a href="#cb53-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-422"><a href="#cb53-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-423"><a href="#cb53-423" aria-hidden="true" tabindex="-1"></a>The last output was informative, but lets look a little deeper.</span>
-<span id="cb53-424"><a href="#cb53-424" aria-hidden="true" tabindex="-1"></a>I now want to group these new values by species. </span>
-<span id="cb53-425"><a href="#cb53-425" aria-hidden="true" tabindex="-1"></a>Using the **group_by** function, we can tell R to group our data set by one, or more variables. </span>
-<span id="cb53-426"><a href="#cb53-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-427"><a href="#cb53-427" aria-hidden="true" tabindex="-1"></a>In this example, I am telling R to **group_by** species, and then provide me with the means and standard deviations of bill length and depth. </span>
-<span id="cb53-428"><a href="#cb53-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-431"><a href="#cb53-431" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb53-432"><a href="#cb53-432" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by() and summarize()</span></span>
-<span id="cb53-433"><a href="#cb53-433" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb53-434"><a href="#cb53-434" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb53-435"><a href="#cb53-435" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> <span class="co">#grouping by one column, species </span></span>
-<span id="cb53-436"><a href="#cb53-436" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>( <span class="co">#summarize to run summary stats </span></span>
-<span id="cb53-437"><a href="#cb53-437" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_mean =</span> <span class="fu">mean</span>(bill_length_mm), <span class="co">#new column with mean value of bill length</span></span>
-<span id="cb53-438"><a href="#cb53-438" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_sd =</span> <span class="fu">sd</span>(bill_length_mm), <span class="co">#new column with standard deviation value of bill length</span></span>
-<span id="cb53-439"><a href="#cb53-439" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_mean =</span> <span class="fu">mean</span>(bill_depth_mm), <span class="co">#new column with mean value of bill depth</span></span>
-<span id="cb53-440"><a href="#cb53-440" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_sd =</span> <span class="fu">sd</span>(bill_depth_mm) <span class="co">#new column with standard deviation value of bill depth</span></span>
-<span id="cb53-441"><a href="#cb53-441" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb53-442"><a href="#cb53-442" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb53-443"><a href="#cb53-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-444"><a href="#cb53-444" aria-hidden="true" tabindex="-1"></a>Following the trend of the last example, let's further group our data set. </span>
-<span id="cb53-445"><a href="#cb53-445" aria-hidden="true" tabindex="-1"></a>I want to now see these same values but by species AND year. </span>
-<span id="cb53-446"><a href="#cb53-446" aria-hidden="true" tabindex="-1"></a>Using the **group_by** function again, we can accomplish this. </span>
-<span id="cb53-447"><a href="#cb53-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-448"><a href="#cb53-448" aria-hidden="true" tabindex="-1"></a>In this example, the only change is I added ', year' into my **group_by** function. </span>
-<span id="cb53-449"><a href="#cb53-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-452"><a href="#cb53-452" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb53-453"><a href="#cb53-453" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by() and summarize()</span></span>
-<span id="cb53-454"><a href="#cb53-454" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb53-455"><a href="#cb53-455" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb53-456"><a href="#cb53-456" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, year) <span class="sc">%&gt;%</span> <span class="co">#grouping by two columns, species and year </span></span>
-<span id="cb53-457"><a href="#cb53-457" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>( <span class="co">#summarize to run summary stats </span></span>
-<span id="cb53-458"><a href="#cb53-458" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_mean =</span> <span class="fu">mean</span>(bill_length_mm), <span class="co">#new column with mean value of bill length</span></span>
-<span id="cb53-459"><a href="#cb53-459" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_sd =</span> <span class="fu">sd</span>(bill_length_mm), <span class="co">#new column with standard deviation value of bill length</span></span>
-<span id="cb53-460"><a href="#cb53-460" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_mean =</span> <span class="fu">mean</span>(bill_depth_mm), <span class="co">#new column with mean value of bill depth</span></span>
-<span id="cb53-461"><a href="#cb53-461" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_sd =</span> <span class="fu">sd</span>(bill_depth_mm) <span class="co">#new column with standard deviation value of bill depth</span></span>
-<span id="cb53-462"><a href="#cb53-462" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb53-463"><a href="#cb53-463" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb53-422"><a href="#cb53-422" aria-hidden="true" tabindex="-1"></a>The last output was informative, but lets look a little deeper.</span>
+<span id="cb53-423"><a href="#cb53-423" aria-hidden="true" tabindex="-1"></a>I now want to group these new values by species. </span>
+<span id="cb53-424"><a href="#cb53-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-425"><a href="#cb53-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-426"><a href="#cb53-426" aria-hidden="true" tabindex="-1"></a>In this example, I am telling R to **group_by** species, and then provide me with the means and standard deviations of bill length and depth. </span>
+<span id="cb53-427"><a href="#cb53-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-430"><a href="#cb53-430" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb53-431"><a href="#cb53-431" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by() and summarize()</span></span>
+<span id="cb53-432"><a href="#cb53-432" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb53-433"><a href="#cb53-433" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb53-434"><a href="#cb53-434" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> <span class="co">#grouping by one column, species </span></span>
+<span id="cb53-435"><a href="#cb53-435" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>( <span class="co">#summarize to run summary stats </span></span>
+<span id="cb53-436"><a href="#cb53-436" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_mean =</span> <span class="fu">mean</span>(bill_length_mm), <span class="co">#new column with mean value of bill length</span></span>
+<span id="cb53-437"><a href="#cb53-437" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_sd =</span> <span class="fu">sd</span>(bill_length_mm), <span class="co">#new column with standard deviation value of bill length</span></span>
+<span id="cb53-438"><a href="#cb53-438" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_mean =</span> <span class="fu">mean</span>(bill_depth_mm), <span class="co">#new column with mean value of bill depth</span></span>
+<span id="cb53-439"><a href="#cb53-439" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_sd =</span> <span class="fu">sd</span>(bill_depth_mm) <span class="co">#new column with standard deviation value of bill depth</span></span>
+<span id="cb53-440"><a href="#cb53-440" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb53-441"><a href="#cb53-441" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb53-442"><a href="#cb53-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-443"><a href="#cb53-443" aria-hidden="true" tabindex="-1"></a>Following the trend of the last example, let's further group our data set. </span>
+<span id="cb53-444"><a href="#cb53-444" aria-hidden="true" tabindex="-1"></a>I want to now see these same values but by species AND year. </span>
+<span id="cb53-445"><a href="#cb53-445" aria-hidden="true" tabindex="-1"></a>Using the **group_by** function again, we can accomplish this. </span>
+<span id="cb53-446"><a href="#cb53-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-447"><a href="#cb53-447" aria-hidden="true" tabindex="-1"></a>In this example, the only change is I added 'year' into my **group_by** function. </span>
+<span id="cb53-448"><a href="#cb53-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-451"><a href="#cb53-451" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb53-452"><a href="#cb53-452" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by() and summarize()</span></span>
+<span id="cb53-453"><a href="#cb53-453" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb53-454"><a href="#cb53-454" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb53-455"><a href="#cb53-455" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, year) <span class="sc">%&gt;%</span> <span class="co">#grouping by two columns, species and year </span></span>
+<span id="cb53-456"><a href="#cb53-456" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>( <span class="co">#summarize to run summary stats </span></span>
+<span id="cb53-457"><a href="#cb53-457" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_mean =</span> <span class="fu">mean</span>(bill_length_mm), <span class="co">#new column with mean value of bill length</span></span>
+<span id="cb53-458"><a href="#cb53-458" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_sd =</span> <span class="fu">sd</span>(bill_length_mm), <span class="co">#new column with standard deviation value of bill length</span></span>
+<span id="cb53-459"><a href="#cb53-459" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_mean =</span> <span class="fu">mean</span>(bill_depth_mm), <span class="co">#new column with mean value of bill depth</span></span>
+<span id="cb53-460"><a href="#cb53-460" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_sd =</span> <span class="fu">sd</span>(bill_depth_mm) <span class="co">#new column with standard deviation value of bill depth</span></span>
+<span id="cb53-461"><a href="#cb53-461" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb53-462"><a href="#cb53-462" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb53-463"><a href="#cb53-463" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-464"><a href="#cb53-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-465"><a href="#cb53-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-466"><a href="#cb53-466" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice on your own {.unnumbered}</span></span>
-<span id="cb53-467"><a href="#cb53-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-468"><a href="#cb53-468" aria-hidden="true" tabindex="-1"></a>Make **five** new changes to the penguins or penguins_raw data sets! These changes can include the functions covered above or functions within dplyr we did not look at here. These changes do not have to be logical or have any rationale, but you **must** be able to explain what you did. </span>
+<span id="cb53-465"><a href="#cb53-465" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice on your own {.unnumbered}</span></span>
+<span id="cb53-466"><a href="#cb53-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-467"><a href="#cb53-467" aria-hidden="true" tabindex="-1"></a>Make **five** new changes to the penguins or penguins_raw data sets! These changes can include the functions covered above or functions within dplyr we did not look at here. These changes do not have to be logical or have any rationale, but you **must** be able to explain what you did. </span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

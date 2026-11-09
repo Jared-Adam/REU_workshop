@@ -35,7 +35,7 @@ The annotation that follows the *2+2* code is not reported in the output becuase
 
 ### How? {.unnumbered}
 
-The first, and potentially most important, step with naming is which operator(s) to use when assigning names. There are two choices: = [equal sign] or <- [less than with dash]. Generally, of these will yield the same result for naming variables. 
+The first, and potentially most important, step with naming is which operator(s) to use when assigning names. There are two choices: **= [equal sign]** or **<- [less than dash]**. Generally, either of these will yield the same result for naming variables. 
 
 ```{r}
 x = 1
@@ -100,9 +100,9 @@ When it comes down to it, that is up to the author. R studio (and most IDEs) do 
 
 For example:
 
-- new_data_2026 > new_data_frame_with_raw_data_2026
+- new_data_2026 **>** new_data_frame_with_raw_data_2026
 
-- loc_x_subset.1 > subset_by_location_x_round_1
+- loc_x_subset.1 **>** subset_by_location_x_round_1
 
 
 ::: {.callout-note}
@@ -110,4 +110,3 @@ For example:
 As long as you do not start your object name with a number, naming comes at the discretion of the author. However, it is important to consider future use (by you and others). 
 
 :::
-}

@@ -8,11 +8,11 @@ In this section, we will go over some important packages and key functions that 
 
 ### What we use to wrangle {.unnumbered}
 
-When we wrangle our data sets, there is one 'umbrella' package I find to be the most versatile. 
+When we wrangle our data sets, there is one 'umbrella' package that is the most versatile. 
 This is **tidyverse**.
 **Tidyverse** houses many useful packages for data manipulation, but in this section I will only be referring to one. 
 This package is **dplyr**. 
-While I rely on this package a lot, I also use functions pre-installed in Base R while wrangling. 
+While I rely on this package a lot, I also use functions pre-installed in base R while wrangling. 
 
 Please see the wrangling cheat sheets [here](resources.qmd).
 
@@ -36,12 +36,12 @@ Please note, to efficiently use functions in the tidyverse, especially dplyr, we
 
 ## dplyr Examples {.unnumbered}
 
-Let's start by installing the needed packages. Remove the # symbol to install these packages. 
+Let's start by installing the needed packages. 
 
 ```{r}
-#| ouptput: false
-# install.packages("palmerpenguins")
-# install.packages("tidyverse")
+#| eval: false
+install.packages("palmerpenguins")
+install.packages("tidyverse")
 ```
 
 ```{r} 
@@ -104,10 +104,10 @@ penguins %>% #From the penguins data set
 
 ### rename() {.unnumbered}
 
-Now that we have viewed and selected for different columns and such, we manipulate our data set.
-We will start by renaming some columns. 
+What if I have a typo in a column name or really do not like what a column is called? Fortunately, renaming columns is easy. 
 Notice with rename, there are two methods you can use. 
 One *without* quotation marks, and one *with.*
+Regardless of which you use, the new name will always come first, followed by the old name. 
 
 In this example, using the **rename** function, I am changing 'species' to 'Species and 'year' to 'Year'.
 
@@ -160,11 +160,11 @@ penguins %>%
 
 ### filter() {.unnumbered}
 
-We also have the ability to subset out data sets and pull out rows with specific values. 
+We also have the ability to pull out rows with specific values. 
 Let's say I *only* want to look at data from *2007.* 
 To accomplish this, we will use the **filter** function. 
 
-In this example, we will be adding the **filter** function as well as recall our knowledge of [operators](d_functionality.qmd) within R.
+In this example, we will be adding the **filter** function as well as recall our knowledge of [operators](intro_start.qmd) within R.
 
 ```{r}
 # select() and filter()
@@ -193,7 +193,7 @@ penguins %>%
 
 ::: {.callout-warning}
 
-WAIT! This output is telling me that there are no instances of a bill length that is greater than the avarage from 2007... That seems impossible, no? So, what is the issue?
+WAIT! This output is telling me that there are no instances of a bill length that are greater than the avarage from 2007... That seems impossible, no? So, what is the issue?
 
 
 ALSO! There is no error message here. It is important to investigate the outputs we obtain because the code may run, but not be accomplishing what we think it is. 
@@ -215,7 +215,7 @@ penguins %>%
 
 ```
 
-Ok great, what if my data set is too big to scroll through an find an NA value? An easy solution to do a quick subset of the NA values to determine if there are any present.
+Ok great, what if my data set is too big to scroll through an find an NA value? An easy solution to do a quick filter of the NA values to determine if there are any present.
 
 Using filter again, I will nest the **is.na** function with the variable I am interested in. If there is an NA in this column, R will print those values. 
 
@@ -302,7 +302,7 @@ penguins %>%
 
 Now, let's create some new columns and row values. With **mutate** I can add a new column with any information I would like. 
 
-Let's start with a simple example of adding "new_column" with only the letter "x" in each row. 
+Let's start with a simple example of adding "new_column" with only the letter "x" in each row. *Notice* with these new columns, the first step is to name the new column and then command R what to put in. 
 
 ```{r}
 penguins %>% 
@@ -336,8 +336,7 @@ This will be done with the **select** function.
 
 
 In this example, I have created the column 'sp_year' which will contain both species and year, but keep their respective values separated by a dash. 
-I then created a new column of the rounded bill length values using the **round** function. 
-*Notice* with these new columns, the first step is to name the new column and then command R what to put in. 
+I then create a new column of the rounded bill length values using the **round** function. 
 Lastly, using the **select** function, I command R to order this data set as follows.
 
 ```{r}
@@ -374,7 +373,7 @@ penguins %>%
 
 The last output was informative, but lets look a little deeper.
 I now want to group these new values by species. 
-Using the **group_by** function, we can tell R to group our data set by one, or more variables. 
+
 
 In this example, I am telling R to **group_by** species, and then provide me with the means and standard deviations of bill length and depth. 
 
@@ -395,7 +394,7 @@ Following the trend of the last example, let's further group our data set.
 I want to now see these same values but by species AND year. 
 Using the **group_by** function again, we can accomplish this. 
 
-In this example, the only change is I added ', year' into my **group_by** function. 
+In this example, the only change is I added 'year' into my **group_by** function. 
 
 ```{r}
 # group_by() and summarize()
