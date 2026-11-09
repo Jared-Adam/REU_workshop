@@ -57,7 +57,7 @@
     "href": "intro_start.html#basic-operators-you-will-use-encounter",
     "title": "1  What is code?",
     "section": "Basic operators you will use/ encounter",
-    "text": "Basic operators you will use/ encounter\n\n\n\nTask\nWindows & Linux\nMac\n\n\n\n\nCopy\nCtrl + C\nCmd + C\n\n\nPaste\nCtrl + V\nCmd + V\n\n\nUndo\nCtrl + Z\nCmd + Z\n\n\nRedo\nCtrl + Shift + Z\nCmd + Shift + Z\n\n\nSelect All\nCtrl + A\nCmd + A\n\n\nIndent\nTab\nTab\n\n\nOutdent\nShift + Tab\nShift + Tab\n\n\nInsert pipe operator\nCmd + Shift + M\nCmd + Shift + M\n\n\n\n\nArithmetic operators\n\n\n\nTask\nOperator\nExample\n\n\n\n\nAddition\n+\nx + y\n\n\nSubstraction\n-\nx - y\n\n\nMultiplication\n*\nx * y\n\n\nDivision\n/\nx / y\n\n\nExponent\n^\nx ^ y",
+    "text": "Basic operators you will use/ encounter\n\n\n\nTask\nWindows & Linux\nMac\n\n\n\n\nCopy\nCtrl + C\nCmd + C\n\n\nPaste\nCtrl + V\nCmd + V\n\n\nUndo\nCtrl + Z\nCmd + Z\n\n\nRedo\nCtrl + Shift + Z\nCmd + Shift + Z\n\n\nSelect All\nCtrl + A\nCmd + A\n\n\nIndent\nTab\nTab\n\n\nOutdent\nShift + Tab\nShift + Tab\n\n\nInsert pipe operator\nCtrl + Shift + M\nCmd + Shift + M\n\n\n\n\nArithmetic operators\n\n\n\nTask\nOperator\nExample\n\n\n\n\nAddition\n+\nx + y\n\n\nSubstraction\n-\nx - y\n\n\nMultiplication\n*\nx * y\n\n\nDivision\n/\nx / y\n\n\nExponent\n^\nx ^ y",
     "crumbs": [
       "Section 1: Introduction",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>What is code?</span>"
