@@ -32,7 +32,7 @@ The **purpose** of programming is to find a sequence of instructions that will a
 | Select All           | `Ctrl + A`          | `Cmd + A`         |
 | Indent               | `Tab`               | `Tab`             |
 | Outdent              | `Shift + Tab`       | `Shift + Tab`     |
-| Insert pipe operator | `Cmd + Shift + M`   | `Cmd + Shift + M` |
+| Insert pipe operator | `Ctrl + Shift + M`   | `Cmd + Shift + M` |
 
 ### Arithmetic operators {.unnumbered}
 
