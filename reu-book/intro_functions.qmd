@@ -5,10 +5,54 @@ title: Functionality with functions
 # What is a function? {.unnumbered}
 
 ## Base R and some built in functions {.unnumbered}
+Functions are reusable blocks of code designed for a specific task, such as arithmetic. R comes with thousands of ready-to-use functions. Some of these include, *mean, max, min, colnames, rm (remove)*, and the list goes on. When we want to use a function, we type the function name and add parentheses at the end, like so: **mean()**. The object we would like to manipulate with the funciton then goes inside the parentheses. [Here](https://cran.r-project.org/doc/contrib/Short-refcard.pdf) is a link of base R functions. 
+
+For example:
+```{r}
+x <- c(1,2,3,4,5,6)
+mean(x)
+```
+
 
 ## Calling for help {.unnumbered}
-
+Now, let's say we would like to work with a function and do not know what it does or if it is the right choice for the task at hand. In R-studio, we can ask for help! If you preceed a function with a quesiton mark [?], a help sheet with code examples will be provided. Run the code below in your session and take a look!
+```{r}
+?mean
+```
 
 ## Obtaining functions from packages {.unnumbered}
+Ok great, we can calculate the mean and ask for help. But, what if base R does not have the function we want? You're in luck! 
+
+There are many many more functions that can be called, but first we have to download the package where these functions reside. A package is exactly what it sounds like. They are boxes of functions, usually designed for specific tasks, that are free for all to download and use. 
+
+When we want to call in a package, we must first download it using the **install.packages** function. After this finishes downloading, we must then call the package into our working session using the **library** function. 
 
 
+::: {.callout-note}
+
+You only have to install a package once! But, every time you restart your R session, you must use the **library** function to call it into your working session. 
+
+:::
+
+Let's download two packages: [dplyr](https://dplyr.tidyverse.org/) and [ggplot2](https://ggplot2.tidyverse.org/). 
+
+Run the code below in your session. 
+
+```{r}
+#| eval: false
+install.packages("dplyr")
+install.packages("ggplot2")
+```
+
+```{r}
+#| output: false
+library(dplyr)
+library(ggplot2)
+```
+
+
+::: {.callout-note}
+
+Note that when using **install.packages** the package name must be in quotation marks, but when using **library**, it does not. 
+
+:::

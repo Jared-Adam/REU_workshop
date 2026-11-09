@@ -12,12 +12,17 @@ book:
       - intro_start.qmd
       - intro_easy.qmd
       - intro_create.qmd
+      - intro_functions.qmd
+  - part: "Section 2: Cleaning"
+    chapters:
+      - clean_dplyr.qmd
   
 
 format:
  html:
     theme: cosmo
-    title-block-banner: "#9e74f1"
+    title-block-banner: "#FF527A"
+    title-block-banner-color: "#D4D4D4"
     toc: true
     code-block-bg: true
     code-block-border-left: "#1abcd9"
