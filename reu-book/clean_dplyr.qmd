@@ -2,3 +2,415 @@
 title: Clean data with dplyr
 ---
 
+# Time to start cleaning some data! {.unnumbered}
+
+In this section, we will go over some important packages and key functions that will aid in R-based data wrangling. SO, without further ado, lettuce begin. 
+
+### What we use to wrangle {.unnumbered}
+
+When we wrangle our data sets, there is one 'umbrella' package I find to be the most versatile. 
+This is **tidyverse**.
+**Tidyverse** houses many useful packages for data manipulation, but in this section I will only be referring to one. 
+This package is **dplyr**. 
+While I rely on this package a lot, I also use functions pre-installed in Base R while wrangling. 
+
+Please see the wrangling cheat sheets [here](resources.qmd).
+
+Additionally, R also has packages we can download that contain data sets for us to practice with. In the following examples, we will use the [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) data sets authored by Allison Horst. Within this package, there are two data sets: clean and raw. We will use the clean data set! 
+
+
+::: {.callout-important}
+
+Please note, to efficiently use functions in the tidyverse, especially dplyr, we must use the **pipe** operator (%>% OR |>). The purpose of the pipe is to link lines of code together sequentially. In doing this, we can clean a data frame one function at a time and have all of the changes occur at the same time. It is important to note that the changes must occur in order, otherwise the code will break. 
+
+:::
+
+#### The pipe operator {.unnumbered}
+
+|    **Task**    | **Windows & Linux** |     **Mac**    |
+|----------------|---------------------|----------------|
+|     Pipe        | `Ctrl + Shift + M`      |      `Cmd + Shift + M`          |
+
+
+
+
+## dplyr Examples {.unnumbered}
+
+Let's start by installing the needed packages. Remove the # symbol to install these packages. 
+
+```{r}
+#| ouptput: false
+# install.packages("palmerpenguins")
+# install.packages("tidyverse")
+```
+
+```{r} 
+#| output: false
+library(tidyverse)
+
+library(palmerpenguins)
+```
+
+The first thing I want to do is determine the names of all the columns within in this data set. I do this by using the base R function, **colnames**. 
+
+```{r}
+colnames(penguins) #the name of the clean data set
+```
+
+### select() {.unnumbered}
+
+Let's start by selecting for only the columns we are interested in. 
+This can be useful when removing variables we are not currently working with. 
+
+
+::: {.callout-note}
+
+You do not have to save each change as a new object! The joy of dplyr is that you can manipulate your data frame as much as you want and not have to save it until you are ready. Additionally, you can save the changes as a new object which will maintain the integrity of the original if you must back track for whatever reason. 
+
+
+:::
+
+
+In this example, we use the **select** function to choose which columns we want to look at. 
+
+
+```{r}
+# select()
+penguins %>% #pipe operator
+  select(species, bill_length_mm, year) # selecting columns species, bill_length, and      year 
+```
+
+
+Using select again, what if I only want to remove one column?
+Instead of typing out every column we want, we can simple type out the one(s) we don't.
+
+In this example, I tell R to remove the sex column using the **select** function again.
+
+```{r}
+# select()
+penguins %>% #From the penguins data set
+  select(-sex)# selecting all columns except for sex
+
+```
+
+Within the **select** function, you can also look for items based on their spelling. This can be especially helpful if you suspect there to be a spelling error somewhere if your data set. In this example, we will search our data set for any variable name that starts with the letter 'b'.
+
+```{r}
+# select()
+penguins %>% #From the penguins data set
+  select(starts_with('b')) # selecting columns that start with 'b' and using starts_with
+```
+
+
+### rename() {.unnumbered}
+
+Now that we have viewed and selected for different columns and such, we manipulate our data set.
+We will start by renaming some columns. 
+Notice with rename, there are two methods you can use. 
+One *without* quotation marks, and one *with.*
+
+In this example, using the **rename** function, I am changing 'species' to 'Species and 'year' to 'Year'.
+
+```{r}
+# rename()
+penguins %>%
+  select(species, bill_length_mm, year) %>% #selecting the columns I want to look at
+  rename( #rename function. notice here the two methods of changing names
+    Species = species, #changing species to Species without quotes
+    "Year" = year #changing year to Year with quotes
+  )
+```
+
+### arrange() {.unnumbered}
+
+One of the first steps we take in *Excel* is **sorting** our data sets.
+The same is possible in R. 
+We do this using the **arrange** function.
+
+In this example, we will be sorting by bill length in an increasing order (smallest to largest). Notice here that R will *default* to the order of small-large with the **arrange** function.  
+
+```{r}
+# select() and arrange()
+penguins %>%
+  select(species, bill_length_mm, year) %>% 
+  arrange(bill_length_mm) #I want to look at bill length in an increasing order from      smallest to largest 
+```
+
+
+What if I want to look at bill length in decreasing order? We can accomplish this by nesting **desc** within the arrange function. 
+
+
+```{r}
+# select(), arrange(), and desc()
+penguins %>%
+  select(species, bill_length_mm, year) %>% 
+  arrange(desc(bill_length_mm)) #using the desc() function to command the order from      largest to smallest 
+```
+
+Now, let's say we want to see bill length in the same descending order, but we want to order this by year. 
+This is done with a very simple addition to our *arrange()* line. 
+To accomplish this, we add the year variable first (remembering the the default for **arrange** is small-large) followed by the bill length command (which is the same as the previous example.)
+
+```{r}
+# select() and arrange()
+penguins %>%
+  select(species, bill_length_mm, year) %>% 
+  arrange(year, desc(bill_length_mm)) #year and bill separated by a comma
+```
+
+### filter() {.unnumbered}
+
+We also have the ability to subset out data sets and pull out rows with specific values. 
+Let's say I *only* want to look at data from *2007.* 
+To accomplish this, we will use the **filter** function. 
+
+In this example, we will be adding the **filter** function as well as recall our knowledge of [operators](d_functionality.qmd) within R.
+
+```{r}
+# select() and filter()
+penguins %>%
+  select(species, bill_length_mm, bill_depth_mm, year) %>% 
+  filter(year == 2007) #using the '==' operator to show everything with the year 2007
+```
+
+What if I want to see which penguins have bill lengths that are higher than the average length, but *only* from 2007?
+This can be accomplished by, again, adding an operator, but also calling another function. 
+We will command R further with **mean** function from base R. 
+Notice I am separating each line in the **filter** function with a comma. 
+This allows me to add multiple commands within the same function.
+
+```{r}
+# select(), filter(), and mean()
+
+penguins %>%
+  select(species, bill_length_mm, year) %>% 
+  filter(
+    year == 2007,#using the '==' operator to show everything with the year 2007
+    bill_length_mm > mean(bill_length_mm), # using '>' to view every row where the bill length is greater than the avg bill length 
+  ) 
+```
+
+
+::: {.callout-warning}
+
+WAIT! This output is telling me that there are no instances of a bill length that is greater than the avarage from 2007... That seems impossible, no? So, what is the issue?
+
+
+ALSO! There is no error message here. It is important to investigate the outputs we obtain because the code may run, but not be accomplishing what we think it is. 
+:::
+
+First, let's look at the columns of interest again. 
+
+```{r}
+penguins %>%
+  select(species, bill_length_mm, year)
+```
+
+There is an **NA**! Arithmetic functions, like **mean**, will break when provided an NA value. In this case, the issue was easily spotted in the first 10 rows that R printed from the new data set. If we wanted to view more of the data set to spot the error, we can add **print** to our code. 
+
+```{r}
+penguins %>% 
+    select(species, bill_depth_mm, year) %>% 
+    print(n = 20) # print 20 lines 
+
+```
+
+Ok great, what if my data set is too big to scroll through an find an NA value? An easy solution to do a quick subset of the NA values to determine if there are any present.
+
+Using filter again, I will nest the **is.na** function with the variable I am interested in. If there is an NA in this column, R will print those values. 
+
+```{r}
+penguins %>% 
+    select(species, bill_depth_mm, year) %>% 
+    filter(is.na(bill_depth_mm))
+```
+
+Lovely! We've spotted that NAs are present and the likely cause for the broken code. Let's get rid of those NAs and obtain the mean. Similar to filter with **is.na**, we can nest a function with **mean** to remove NAs from the arithmetic. This function is **na.omit**. 
+
+```{r}
+penguins %>%
+  select(species, bill_length_mm, year) %>% 
+  filter(
+    year == 2007,
+    bill_length_mm > mean(na.omit(bill_length_mm)) 
+  ) 
+```
+
+We can also get rid of all of the NAs first by adding **na.omit** as the first function in our stream of code. 
+
+```{r}
+penguins %>% 
+    na.omit()%>% 
+    select(species, bill_length_mm, year) %>% 
+    filter(
+    year == 2007,
+    bill_length_mm > mean(bill_length_mm)
+  ) 
+```
+
+
+### count() {.unnumbered}
+
+Let's say we are interested in manipulating our data set by species.  
+I want to know how many species I have to further filter this set. 
+To accomplish this, I will use the the **count** function to view how many species I have and their associated values within the data set.
+
+```{r}
+# count()
+penguins %>% 
+  count(species)
+```
+
+It appears there are three species within my data set.
+For one reason or another, I want to filter out *Adelie* from further interpretations. 
+To do this, I will add another line below the bill length filter. 
+
+This new line says *when species equals Chinstrap OR Gentoo*, keep them in the data set.
+
+```{r}
+# select() and filter()
+penguins %>%
+    na.omit() %>% 
+  select(species, bill_length_mm, year) %>% 
+  filter(
+    year == 2007,#using the '==' operator to show everything with the year 2007
+    bill_length_mm > mean(bill_length_mm),# using '>' to view every row where the bill length is greater than the avg bill length
+    species == "Chinstrap" | species == "Gentoo" # look in species and pull out chinstrap and gentoo. | allows to command two species, similar to 'or'
+  ) 
+```
+
+
+Another way to accomplish the same task is to tell R which values to *exclude*, rather than *include.* 
+This is done by using the 'does not equal' operator to command R to return every species value that is not Adelie.
+
+```{r}
+# select () and filter()
+penguins %>%
+    na.omit() %>% 
+  select(species, bill_length_mm, year) %>% 
+  filter(
+    year == 2007,#using the '==' operator to show everything with the year 2007
+    bill_length_mm > mean(bill_length_mm),# using '>' to view every row where the bill length is greater than the avg bill length 
+    species != "Adelie" #does not equal operator
+  ) 
+
+#the output is the same!
+```
+
+
+### mutate() {.unnumbered}
+
+Now, let's create some new columns and row values. With **mutate** I can add a new column with any information I would like. 
+
+Let's start with a simple example of adding "new_column" with only the letter "x" in each row. 
+
+```{r}
+penguins %>% 
+    na.omit() %>% 
+    select(species, bill_length_mm, year) %>% 
+    mutate(new_column = "x")
+```
+
+Ok, what about adding a new column that is based on a condition? For example, every time species "Adelie" is present I want an "x" and for the other species I want a "y". I can do this using the **case_when** function which acts similar to an if/or statment. 
+
+To check that this works, I will follow **mutate** with **group_by** and **slice_head**. This will group the data frame by species and then allow me to take the first five values of each species change to check that my new column contains the correct information. 
+
+```{r}
+penguins %>% 
+    na.omit() %>% 
+    select(species, bill_length_mm, year) %>% 
+    mutate(new_column = case_when(species == "Adelie" ~ "x", # if species is Adelie, add an x
+    .default = "y")) %>% # if species is not Adelie, add a y
+    group_by(species) %>% 
+    slice_head(n = 5)
+
+```
+
+
+
+
+Let's say we want to add a new column combining *species and year* and a new column with the *rounded values of bill length*. 
+We will be using the **mutate** function here.
+Along with this, we then want to *rearrange* our data set for viewing purposes of our new variables. 
+This will be done with the **select** function. 
+
+
+In this example, I have created the column 'sp_year' which will contain both species and year, but keep their respective values separated by a dash. 
+I then created a new column of the rounded bill length values using the **round** function. 
+*Notice* with these new columns, the first step is to name the new column and then command R what to put in. 
+Lastly, using the **select** function, I command R to order this data set as follows.
+
+```{r}
+# select(), mutate(), select()
+penguins %>%
+    na.omit() %>% 
+  select(species, bill_length_mm, year) %>% 
+  mutate(
+    sp_year = paste(species, "-", year), #adding a new column named 'sp_year' and pasting the species column and year column with a dash between them. 
+    rn_bill_length_mm = round(bill_length_mm) #creating a column of rounded bill lengths 
+  ) %>% 
+  select(species, year, sp_year, bill_length_mm, rn_bill_length_mm) #placing these new columns an order I would like 
+```
+
+### summarize() {.unnumbered}
+
+Now that we are confident in our wrangling, we can investigate some summary statistics. 
+
+First, let's look at the means and standard deviations of both bill length and depth.
+This will be done by name new columns and then using either the **mean** function or **sd** function to produce a desired output.
+
+```{r}
+# summarize ()
+penguins %>% 
+    na.omit() %>% 
+  summarize( #summarize to run summary stats 
+  bill_length_mean = mean(bill_length_mm), #new column with mean value of bill length
+  bill_length_sd = sd(bill_length_mm), #new column with standard deviation value of bill length
+  bill_depth_mean = mean(bill_depth_mm), #new column with mean value of bill depth
+  bill_depth_sd = sd(bill_depth_mm) #new column with standard deviation value of bill depth
+  )
+```
+
+
+The last output was informative, but lets look a little deeper.
+I now want to group these new values by species. 
+Using the **group_by** function, we can tell R to group our data set by one, or more variables. 
+
+In this example, I am telling R to **group_by** species, and then provide me with the means and standard deviations of bill length and depth. 
+
+```{r}
+# group_by() and summarize()
+penguins %>% 
+    na.omit() %>% 
+  group_by(species) %>% #grouping by one column, species 
+  summarize( #summarize to run summary stats 
+    bill_length_mean = mean(bill_length_mm), #new column with mean value of bill length
+    bill_length_sd = sd(bill_length_mm), #new column with standard deviation value of bill length
+    bill_depth_mean = mean(bill_depth_mm), #new column with mean value of bill depth
+    bill_depth_sd = sd(bill_depth_mm) #new column with standard deviation value of bill depth
+  )
+```
+
+Following the trend of the last example, let's further group our data set. 
+I want to now see these same values but by species AND year. 
+Using the **group_by** function again, we can accomplish this. 
+
+In this example, the only change is I added ', year' into my **group_by** function. 
+
+```{r}
+# group_by() and summarize()
+penguins %>% 
+    na.omit() %>% 
+  group_by(species, year) %>% #grouping by two columns, species and year 
+  summarize( #summarize to run summary stats 
+    bill_length_mean = mean(bill_length_mm), #new column with mean value of bill length
+    bill_length_sd = sd(bill_length_mm), #new column with standard deviation value of bill length
+    bill_depth_mean = mean(bill_depth_mm), #new column with mean value of bill depth
+    bill_depth_sd = sd(bill_depth_mm) #new column with standard deviation value of bill depth
+  )
+```
+
+
+## Practice on your own {.unnumbered}
+
+Make **five** new changes to the penguins or penguins_raw data sets! These changes can include the functions covered above or functions within dplyr we did not look at here. These changes do not have to be logical or have any rationale, but you **must** be able to explain what you did. 
