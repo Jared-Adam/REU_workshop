@@ -212,3 +212,19 @@ penguins %>%
     bill_depth_mean = mean(bill_depth_mm), #new column with mean value of bill depth
     bill_depth_sd = sd(bill_depth_mm) #new column with standard deviation value of bill depth
   )
+
+
+# TEST ####
+starwars |>
+  filter(height > 100) |>
+  print(n = 10)
+
+
+starwars
+
+starwars |>
+  relocate(name, homeworld)
+
+starwars |>
+  rename("NAME" = name,
+         ht = height)
